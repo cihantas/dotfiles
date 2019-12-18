@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
+set guifont=Cascadia\ Code:h16
+
 " Color Schemes
 Plug 'cihantas/vim-citylights'
 
@@ -80,7 +82,7 @@ set bs=2
 filetype plugin indent on
 
 " Add space around lines (to modify line height).
-set linespace=2
+set linespace=3
 
 " Open terminal emualator.
 nnoremap <silent> <leader>sh :terminal<CR>
