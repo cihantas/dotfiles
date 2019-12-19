@@ -15,6 +15,9 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'lifepillar/vim-solarized8'
 Plug 'whatyouhide/vim-gotham'
+Plug 'wlangstroth/vim-racket'
+
+Plug 'zxqfl/tabnine-vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
