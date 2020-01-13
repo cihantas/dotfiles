@@ -15,16 +15,29 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'lifepillar/vim-solarized8'
 Plug 'whatyouhide/vim-gotham'
-Plug 'wlangstroth/vim-racket'
+Plug 'cormacrelf/vim-colors-github'
 
-Plug 'zxqfl/tabnine-vim'
+" Elixir
+Plug 'slashmili/alchemist.vim'
+Plug 'elixir-editors/vim-elixir'
+
+Plug 'kchmck/vim-coffee-script'
+Plug 'wlangstroth/vim-racket'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'pangloss/vim-javascript', { 'for': ['js', 'html', 'json'] }
 
 call plug#end()
+
+" au BufNewFile,BufRead,BufReadPost *.rkt,*.rktl,*.rktd set filetype=scheme
+let g:deoplete#enable_at_startup = 1
+
+let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"cd ~/.vim/plugged/swank-racket/ && racket server.rkt\""'
+let g:paredit_mode = 0
 
 colorscheme solarized8_flat
 set background=dark
@@ -97,5 +110,21 @@ map <C-n> :NERDTreeToggle<CR>
 set wildignore+=*/node_modules/*,*/vendor/*,*/deps/*
 
 " Lightline
-let g:lightline = { 'colorscheme': 'solarized' }
+" let g:lightline = { 'colorscheme': 'Amber' }
 
+
+" Golang
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" Show autocomplete on dot.
+au filetype go inoremap <buffer> . .<C-x><C-o>
+"
+" Run goimports along gofmt on each save.
+let g:go_fmt_command = "goimports"
+
+" Automatically get signature/type info for object under cursor.
+let g:go_auto_type_info = 1
+
+" Remove trailing whitespace on save.
+autocmd BufWritePre * %s/\s\+$//e
